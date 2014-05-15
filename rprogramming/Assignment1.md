@@ -64,16 +64,14 @@ The function that you write should be able to match this output. Please save you
                         data <- rbind(data, read.csv(files[i]))
                 }
                 if (pollutant == "sulfate") {
-                        mean <- mean(data$sulfate, na.rm = TRUE)
+                        mean(data$sulfate, na.rm = TRUE)
                 } 
                 if (pollutant == "nitrate") {
-                        mean <- mean(data$nitrate, na.rm = TRUE)
+                        mean(data$nitrate, na.rm = TRUE)
                 }
-                print(mean, digits = 4)
         }
 
-
-==========================================================================================
+==============================================================================================================================================
 
 ### Part 2
 Write a function that reads a directory full of files and reports the number of completely observed cases in each data file. 
@@ -127,7 +125,8 @@ You can see some example output from this function:
 
 The function that you write should be able to match this output. Please save your code to a file named complete.R. 
 
-## Answer
+### Answer
+
         complete <- function(directory, id = 1:332) {
                 files <- dir(directory, full.names = TRUE)[id]
                 data <- data.frame()
@@ -142,11 +141,9 @@ The function that you write should be able to match this output. Please save you
                 data.frame(id, nobs)
         }
 
+==============================================================================================================================================
 
-#####################################################################
-
-
-## Part 3
+### Part 3
 ### Write a function that takes a directory of data files and a threshold for complete cases and calculates the correlation between sulfate and nitrate for monitor locations where the number of completely observed cases (on all variables) is greater than the threshold. 
 ### The function should return a vector of correlations for the monitors that meet the threshold requirement. If no monitors meet the threshold requirement, then the function should return a numeric vector of length 0. 
 ### A prototype of this function follows:
