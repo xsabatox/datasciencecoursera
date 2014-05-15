@@ -42,34 +42,35 @@ A prototype of the function is as follows:
 
 You can see some example output from this function:
 
-source("pollutantmean.R")
+        source("pollutantmean.R")
 
-pollutantmean("specdata", "sulfate", 1:10)
-[1] 4.064
+        pollutantmean("specdata", "sulfate", 1:10)
+        [1] 4.064
 
-pollutantmean("specdata", "nitrate", 70:72)
-[1] 1.706
+        pollutantmean("specdata", "nitrate", 70:72)
+        [1] 1.706
 
-pollutantmean("specdata", "nitrate", 23)
-[1] 1.281
+        pollutantmean("specdata", "nitrate", 23)
+        [1] 1.281
 
 The function that you write should be able to match this output. Please save your code to a file named pollutantmean.R. 
 
 ### Answer
-pollutantmean <- function(directory, pollutant, id = 1:332) {
-        files <- dir(directory, full.names = TRUE)[id]
-        data <- data.frame()
-        for (i in seq_along(id)) {
-                data <- rbind(data, read.csv(files[i]))
+
+        pollutantmean <- function(directory, pollutant, id = 1:332) {
+                files <- dir(directory, full.names = TRUE)[id]
+                data <- data.frame()
+                for (i in seq_along(id)) {
+                        data <- rbind(data, read.csv(files[i]))
+                }
+                if (pollutant == "sulfate") {
+                        mean <- mean(data$sulfate, na.rm = TRUE)
+                } 
+                if (pollutant == "nitrate") {
+                        mean <- mean(data$nitrate, na.rm = TRUE)
+                }
+                print(mean, digits = 4)
         }
-        if (pollutant == "sulfate") {
-                mean <- mean(data$sulfate, na.rm = TRUE)
-        } 
-        if (pollutant == "nitrate") {
-                mean <- mean(data$nitrate, na.rm = TRUE)
-        }
-        print(mean, digits = 4)
-}
 
 
 ==========================================================================================
