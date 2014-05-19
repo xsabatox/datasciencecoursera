@@ -1,5 +1,6 @@
 ## R Programming - Quiz 02
 
+
 ## Question 01
 ## Suppose I define the following function in R:
 cube <- function(x, n) {
