@@ -74,7 +74,7 @@ print(x)
 
 ## Question 11
 ## In the dataset provided for this Quiz, what are the column names of the dataset?
-hw1_data <- read.csv("~/Coursera/RProgramming/hw1_data.csv")
+hw1_data <- read.csv("~/datasciencecoursera/rprogramming/quizzes/hw1_data.csv")
 colnames(hw1_data)
 ## A: Ozone, Solar.R, Wind, Temp, Month, Day.
 
